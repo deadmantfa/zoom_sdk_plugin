@@ -2,14 +2,13 @@ import 'dart:convert';
 import 'dart:html';
 import 'dart:js' as js;
 import 'package:jose/jose.dart';
-import 'package:zoom_sdk_plugin/src/web/zoom_web.dart';
 import 'package:zoom_sdk_plugin/src/common/zoom_sdk_plugin_interface.dart';
 
 class ZoomSdkPluginWeb implements ZoomSdkPluginInterface {
   ZoomSdkPluginWeb() {
-    final script = ScriptElement()
+    final zoomPluginScript = ScriptElement()
       ..src = 'packages/zoom_sdk_plugin/src/web/zoom_web.js';
-    document.head!.append(script);
+    document.head!.append(zoomPluginScript);
     exposeGenerateSignatureToJs();
   }
 
